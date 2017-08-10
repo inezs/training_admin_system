@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Local Storage - Disable Button - Reuseable Function</title>
+    <title>Local Storage - Disable Button - Reuseable Function - Callback Function</title>
     <meta charset="utf-8" />
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
@@ -21,7 +21,7 @@
             $("#count").html(localStorage.clickcount);
         })
         $("#button").click(function () {
-            //disable button
+            //disable button and callback
             toggle("#button", true);
             toggle("#reset", true);
             //localstorage
