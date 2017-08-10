@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Local Storage - Disable Button - Reuseable Function</title>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>You have click the "Click Me!" button <span id="count">X</span> times</h1>
+    <button id="button">Click Me!</button>
+    <button id="reset">Reset</button>
+    <script>
+        //reuseable function
+        function toggle(selector, value){
+            $(selector).prop("disabled", value);
+        };
+        $(document).ready(function(){
+            $("#count").html(localStorage.clickcount);
+        })
+        $("#button").click(function () {
+            //disable button
+            toggle("#button", true);
+            toggle("#reset", true);
+            //localstorage
+            if (localStorage.clickcount) {
+                localStorage.clickcount = Number(localStorage.clickcount) + 1;
+            } else {
+                localStorage.clickcount = 1;
+            }
+            $("#count").html(localStorage.clickcount);
+            //enable button
+            setTimeout(function(){ toggle("#button", false); }, 1000);
+            setTimeout(function(){ toggle("#reset", false); }, 1000);
+        });
+        $("#reset").click(function () {
+            localStorage.clickcount = 0;
+            $("#count").html(localStorage.clickcount);
+        });
+    </script>
+</body>
+
+</html>
