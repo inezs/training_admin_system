@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pagination and JSON</title>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="pagination">
+        <table>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td id="fn">Jill</td>
+                <td id="ln">Smith</td>
+                <td id="age">50</td>
+            </tr>
+        </table>
+        <button id="1">1</button>
+        <button id="2">2</button>
+        <script>
+            obj = {
+                "1" : {
+                    "fn": "Jill",
+                    "ln": "Smith",
+                    "age": "90"
+                },
+                "2" : {
+                    "fn": "Will",
+                    "ln": "Age",
+                    "age": "21"
+                },
+            };
+            function page(json, page){
+                $("#fn").html(json[page].fn);
+                $("#ln").html(json[page].ln);
+                $("#age").html(json[page].age);
+            };
+            $("button").click(function () {
+                page(obj, this.id);
+            });
+        </script>
+    </div>
+</body>
+
+</html>
