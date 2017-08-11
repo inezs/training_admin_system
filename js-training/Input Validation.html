@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id="title">INPUT VALIDATION </title>
+    </head>
+    <body>
+        <!-- <form action="/action_page_post.php" method="post"> -->
+            Put a Number below 10: <input id="numb1"><br>
+            Put a Number more than 100: <input id="numb2"><br>
+        <!-- </form> -->
+        <button onclick="checkSubmission()">Submit</button>
+        <p id="output_text"></p>
+        <script>
+            function checkSubmission()
+            {
+                var i, b;
+                i = document.getElementById("numb1").value;
+                b = document.getElementById("numb2").value;
+                if (i < 10)
+                {
+                    text = "First input is correct";
+                }
+                else
+                {
+                    text = "First input is not correct";
+                }
+                // document.getElementById("output_text").innerHTML = text;
+                if (b > 100)
+                {
+                    text = text + " Second input is correct";
+                }
+                else
+                {
+                    text = text + " Second input is not correct"
+                }
+                document.getElementById("output_text").innerHTML = text;
+            }
+        </script>
+    </body>
+</html>

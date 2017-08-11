@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id="title">HTML Manipulation with DOM </title>
+    </head>
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $("button").click(function(){ 
+                    $("h1, h2").addClass( "purple");
+                });
+            });
+        </script>
+
+        <style>
+            .purple{
+                color: plum;
+            }
+        </style>
+        <h1 id="first_statement" >JAVA SCRIPT TRAINING</h1>
+        <h2 id="second_statement">Lorem Ipsum</h2>
+        <button type="button" id="replace_body">Replace Body Text</button>
+    </body>
+</html>

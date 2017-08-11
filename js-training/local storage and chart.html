@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/localStorage/2.0.1/localStorage.min.js"></script>
+<h2>CLICK CHART</h2>
+<canvas id="clickChart" width="100px" height="75px"></canvas>
+<button id="tobe" onclick="addCountTobe()">TO BE</button>
+<button id="notobe" onclick="addCountNotobe()">NOT TO BE</button>
+<button id="reset" onclick="resetCount()">RESET</button>
+<button id="update_chart" onclick="updateChart()">UPDATE CHART</button>
+
+<script>
+localStorage.setItem("ToBeCount", 0);
+localStorage.setItem("NoToBeCount", 0);
+
+function addCountTobe()
+{
+    localStorage.setItem("ToBeCount", Number(localStorage.getItem("ToBeCount"))+1);
+}
+
+function addCountNotobe()
+{
+    localStorage.setItem("NoToBeCount", Number(localStorage.getItem("NoToBeCount"))+1);
+}
+
+function resetCount()
+{   
+    localStorage.setItem("ToBeCount", 0);
+    localStorage.setItem("NoToBeCount", 0);
+}
+function updateChart()
+{
+    var popCanvas = document.getElementById("clickChart");
+    var barChart = new Chart(popCanvas, {
+    type: 'bar',
+    data: {
+        labels: ["To  Be", "Not To Be"],
+        datasets: [{
+        label: 'Click Count',
+        data: [Number(localStorage.getItem("ToBeCount")), Number(localStorage.getItem("NoToBeCount"))],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+        ]
+        }]
+    }
+    });
+}
+</script>
+
+</body>
+</html>

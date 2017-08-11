@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id="title">HTML Manipulation with DOM </title>
+    </head>
+    <body>
+        <h1 id="first_statement" >JAVA SCRIPT TRAINING</h1>
+        <h2 id="second_statement">Lorem Ipsum</h2>
+        <button type="button" id="replace_body">Replace Body Text</button>
+        <script>
+            function changeColor()
+            {
+                document.getElementById("first_statement").style.color = "purple";
+            }
+            
+            function replaceBodyText()
+            {
+                //  document.getElementById("second_statement").style.color = "purple";
+                document.getElementById("second_statement").innerHTML.replace(/*e*/g, 'a');
+            }
+            document.getElementById("first_statement").onclick = changeColor;
+            document.getElementById("replace_body").onclick = replaceBodyText;
+        </script>
+    </body>
+</html>
