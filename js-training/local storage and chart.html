@@ -4,11 +4,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/localStorage/2.0.1/localStorage.min.js"></script>
 <h2>CLICK CHART</h2>
-<canvas id="clickChart" width="100px" height="75px"></canvas>
+<div class="chart-container" style=" height:20vh; width:40vw; position:absolute; top:50px; left:50px">
+    <canvas id="clickChart"></canvas>
+</div>
+<div  style="position:absolute; top:370px; left:75px; z-index:3">
 <button id="tobe" onclick="addCountTobe()">TO BE</button>
 <button id="notobe" onclick="addCountNotobe()">NOT TO BE</button>
-<button id="reset" onclick="resetCount()">RESET</button>
 <button id="update_chart" onclick="updateChart()">UPDATE CHART</button>
+</div>
 
 <script>
 localStorage.setItem("ToBeCount", 0);
@@ -24,11 +27,6 @@ function addCountNotobe()
     localStorage.setItem("NoToBeCount", Number(localStorage.getItem("NoToBeCount"))+1);
 }
 
-function resetCount()
-{   
-    localStorage.setItem("ToBeCount", 0);
-    localStorage.setItem("NoToBeCount", 0);
-}
 function updateChart()
 {
     var popCanvas = document.getElementById("clickChart");
@@ -44,6 +42,15 @@ function updateChart()
             'rgba(54, 162, 235, 0.6)',
         ]
         }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
     }
     });
 }
