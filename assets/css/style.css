@@ -31,3 +31,9 @@ body {
     font-size: 1em;
     color: #858585;
 }
+form {
+    padding: 8px;
+}
+input[type=text]{
+    width: 80%;
+}
