@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>UI Filtering</title>
+    <meta charset="utf-8" />
+    <script>
+    var objek =  [
+                {"fn": "Jill", "ln": "Smith", "age": "90"},
+                {"fn": "Will", "ln": "Age", "age": "21"},
+                {"fn": "Andy", "ln": "Miller", "age": "25"},
+                {"fn": "Brandon", "ln": "Bucket", "age": "43"},
+                {"fn": "Celestina", "ln": "Winston", "age": "66"},
+                {"fn": "Wildan","ln": "Hood","age": "31"},
+                {"fn": "Andre","ln": "Morse","age": "39"},
+                {"fn": "Dean","ln": "Williams", "age": "94"}
+                ]
+    </script>
+</head>
+
+<body>
+    <div id="filter_box">
+        <p>Filter anybody that older than</p>
+        <input id="filter_input"></input>
+        <button id="filter_button" onclick="showFilteredData()">Filter</button>
+    </div>
+    <div id="grid">
+        <table id="OutputTable">
+            <td>
+                <tr>First Name</tr>
+                <tr>Last Name</tr>
+                <tr>Age</tr>
+            </td>
+        </table>
+    </div>
+    <div id="page_index"></div>
+    <div id="pagination">
+        <button id="by5" onclick="setPaginationBy(5,objek)">5</button>
+        <button id="by10"  onclick="setPaginationBy(10, objek)">10</button>
+    <div>
+    <script>
+        
+        var paginationBy, tableSize;
+
+        function displayData(i0, ix, obj)
+        {
+            var table = document.getElementById("OutputTable");
+            for(j =0; j < tableSize;j++)
+            {
+                table.deleteRow(1);
+            }
+            tableSize = paginationBy;
+            if (ix >obj.length)
+            {
+                ix = obj.length;
+                tableSize = ix-i0;
+            }
+            
+            for(var i = i0; i < ix; i++){
+                var row = table.insertRow((i%paginationBy)+1);
+                var fn = row.insertCell(0);
+                var ln = row.insertCell(1);
+                var ag = row.insertCell(2);
+                fn.innerHTML = obj[i].fn;
+                ln.innerHTML = obj[i].ln;
+                ag.innerHTML = obj[i].age;
+            }
+        }
+
+        function page(nth,obj)
+        {
+            displayData((nth-1)*paginationBy, (nth*paginationBy), obj);
+        }
+
+        function setPaginationBy(n,obj){
+            paginationBy=n;
+            document.getElementById("page_index").innerHTML ="";
+            var buttone = [];
+            for(i = 0; i < (obj.length/paginationBy); i++)
+            {
+                buttone[i] = document.createElement('span');
+                buttone[i].innerHTML = '<button onclick="page('+(i+1)+')">'+(i+1)+'</button>';
+                document.getElementById("page_index").appendChild(buttone[i]);
+            }
+            page(1, obj);
+        }
+        setPaginationBy(5, objek);
+</script>
+    
+<script>
+    function showFilteredData()
+    {
+        var filtered_data=[];
+        for (var j=0; j<objek.length; j++)
+        {
+            if(objek[j].age > Number(document.getElementById("filter_input").value))
+            {
+                filtered_data.push(objek[j]);
+            }
+        }
+        console.log(filtered_data);
+        setPaginationBy(5, filtered_data);
+    }
+    
+</script>
+</body>
+
+</html>
