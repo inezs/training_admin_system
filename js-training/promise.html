@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Promise</title>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>You need to check the console to see this in action</h1>
+    <script>
+        var promise = new Promise((resolve, reject) => {
+            //fungsi di dalam sini harusnya async
+            setTimeout(function () {
+                resolve("promise success after 3s");
+            }, 3000);
+        });
+
+        promise.then((message) => {
+            console.log(message);
+        });
+    </script>
+</body>
+
+</html>

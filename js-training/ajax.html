@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AJAX request</title>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="change">
+        <p>This Text will be changed</p>
+    </div>
+    <button id="button">Click Me!</button>
+    <script>
+        $("#button").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "ajax-input.txt",
+                dataType: "text",
+                success: function (result) {
+                    $("#change").html(result);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
