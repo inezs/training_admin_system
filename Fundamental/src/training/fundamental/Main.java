@@ -24,6 +24,11 @@ import java.util.Map;
 
 public class Main extends IOException {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -511723764699557542L;
+
 	public static void main(String[] args) throws IOException {		
 		try{
 			byte a = 1;
@@ -44,6 +49,8 @@ public class Main extends IOException {
 			for(int i=0; i<10; i++){
 				System.out.println("Print ke-"+(i+1));
 			}
+			
+			
 			List<String> var = new LinkedList<String>();
 			var.add("Saya");
 			var.add("Disini");
@@ -106,11 +113,8 @@ public class Main extends IOException {
 		    }
 		    System.out.println();
 			
-		}
-		finally
-		{
+		} finally{
 			System.out.println("HAHAHA");
 		}
 	}
 }
-
