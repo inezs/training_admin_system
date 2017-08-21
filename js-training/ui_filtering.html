@@ -13,8 +13,9 @@
                 {"fn": "Celestina", "ln": "Winston", "age": "66"},
                 {"fn": "Wildan","ln": "Hood","age": "31"},
                 {"fn": "Andre","ln": "Morse","age": "39"},
-                {"fn": "Dean","ln": "Williams", "age": "94"}
-                ]
+                {"fn": "Dean","ln": "Williams", "age": "94"},
+                ];
+    var obj = objek;
     </script>
 </head>
 
@@ -39,10 +40,10 @@
         <button id="by10"  onclick="setPaginationBy(10, objek)">10</button>
     <div>
     <script>
-        
+       
         var paginationBy, tableSize;
 
-        function displayData(i0, ix, obj)
+        function displayData(i0, ix)
         {
             var table = document.getElementById("OutputTable");
             for(j =0; j < tableSize;j++)
@@ -67,12 +68,12 @@
             }
         }
 
-        function page(nth,obj)
+        function page(nth)
         {
-            displayData((nth-1)*paginationBy, (nth*paginationBy), obj);
+            displayData((nth-1)*paginationBy, (nth*paginationBy));
         }
 
-        function setPaginationBy(n,obj){
+        function setPaginationBy(n){
             paginationBy=n;
             document.getElementById("page_index").innerHTML ="";
             var buttone = [];
@@ -82,9 +83,9 @@
                 buttone[i].innerHTML = '<button onclick="page('+(i+1)+')">'+(i+1)+'</button>';
                 document.getElementById("page_index").appendChild(buttone[i]);
             }
-            page(1, obj);
+            page(1);
         }
-        setPaginationBy(5, objek);
+        setPaginationBy(5);
 </script>
     
 <script>
@@ -99,7 +100,8 @@
             }
         }
         console.log(filtered_data);
-        setPaginationBy(5, filtered_data);
+        obj = filtered_data;
+        setPaginationBy(5);
     }
     
 </script>
