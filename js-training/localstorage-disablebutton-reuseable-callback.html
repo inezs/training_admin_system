@@ -21,7 +21,7 @@
             $("#count").html(localStorage.clickcount);
         })
         $("#button").click(function () {
-            //disable button and callback
+            //disable button
             toggle("#button", true);
             toggle("#reset", true);
             //localstorage
@@ -31,7 +31,7 @@
                 localStorage.clickcount = 1;
             }
             $("#count").html(localStorage.clickcount);
-            //enable button
+            //enable button and callback
             setTimeout(function(){ toggle("#button", false); }, 1000);
             setTimeout(function(){ toggle("#reset", false); }, 1000);
         });
