@@ -33,6 +33,7 @@ body {
 }
 form {
     padding: 8px;
+	text-align:center;
 }
 input[type=text]{
     width: 80%;
